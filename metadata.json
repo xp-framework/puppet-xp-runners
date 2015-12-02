@@ -1,0 +1,16 @@
+{
+  "name": "xp-xp_runners",
+  "version": "0.2.0",
+  "author": "Frank Kleine <mikey@stubbles.net>",
+  "summary": "Installs xp-runners, see https://github.com/xp-framework/xp-runners.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/xp-framework/puppet-xp-runners",
+  "project_page": "https://github.com/xp-framework/puppet-xp-runners",
+  "issues_url": "https://github.com/xp-framework/puppet-xp-runners/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"puppetlabs-apt","version_requirement":">= 2.1.1"}
+  ],
+  "data_provider": null
+}
+

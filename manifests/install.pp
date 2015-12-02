@@ -1,0 +1,40 @@
+# Class: xp_runners::install
+# ===========================
+#
+# Actual steps for installation.
+#
+# Authors
+# -------
+#
+# Frank Kleine <mikey@stubbles.net>
+#
+# Copyright
+# ---------
+#
+# Copyright 2015 Frank Kleine
+#
+class xp_runners::install {
+
+  # repository with xp-runners requires https
+  package { 'apt-transport-https':
+    ensure => latest,
+  }
+
+  # make xp_runners repository available
+  apt::source { 'xp_runners_repo':
+    location => 'https://dl.bintray.com/xp-framework/xp-runners',
+    release  => 'jessie',
+    repos    => 'main',
+    key      => {
+      id     => 'D401AB61',
+      source => 'https://bintray.com/user/downloadSubjectPublicKey?username=bintray',
+    },
+    require  => Package['apt-transport-https']
+  }
+
+  package { ['realpath', 'xp-runners']:
+    ensure  => latest,
+    require => Apt::Source['xp_runners_repo']
+  }
+}
+

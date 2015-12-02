@@ -16,9 +16,7 @@
 class xp_runners::install {
 
   # repository with xp-runners requires https
-  package { 'apt-transport-https':
-    ensure => latest,
-  }
+  ensure_packages(['apt-transport-https'])
 
   # make xp_runners repository available
   apt::source { 'xp_runners_repo':
@@ -32,7 +30,7 @@ class xp_runners::install {
     require  => Package['apt-transport-https']
   }
 
-  package { ['realpath', 'xp-runners']:
+  package { 'xp-runners':
     ensure  => latest,
     require => Apt::Source['xp_runners_repo']
   }

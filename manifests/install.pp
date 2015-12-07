@@ -24,7 +24,7 @@ class xp_runners::install {
     release  => 'jessie',
     repos    => 'main',
     key      => {
-      id     => 'D401AB61',
+      id     => '8756C4F765C9AC3CB6B85D62379CE192D401AB61',
       source => 'https://bintray.com/user/downloadSubjectPublicKey?username=bintray',
     },
     require  => Package['apt-transport-https']

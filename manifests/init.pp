@@ -24,7 +24,7 @@
 #
 class xp_runners (
   $manage_package_repo  = $xp_runners::params::manage_package_repo,
-){
+) inherits xp_runners::params {
 
   include xp_runners::install
 

@@ -28,6 +28,7 @@ class xp_runners (
 
   include xp_runners::install
 
+  validate_bool($manage_package_repo)
   if $manage_package_repo {
     include xp_runners::repository
 

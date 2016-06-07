@@ -10,7 +10,29 @@
 #
 # * `manage_package_repo`
 #   Switch whether the XP-Runners repository should be used. Optional, defaults
-#   to true.
+#   to true. All remaining parameters are ignored when this is set to false.
+#
+# * `repo_location`
+#   URL of repository where xp-runners can be found. Optional, defaults
+#   to https://dl.bintray.com/xp-runners/debian.
+#
+# * `repo_release`
+#   Which Debian release the package should be chosen for. Optional, defaults
+#   to jessie.
+#
+# * `repo_repos`
+#   Which Debian release repository the package should be chosen from. Optional,
+#   defaults to main.
+#
+# * `repo_key_id`
+#   ID of repository key. Optional, defaults to key of default repo_location.
+#
+# * `repo_key_source`
+#   Where to find the repository key. Optional, defaults to key of default
+#   repo_location.
+#
+# * `repo_requires_https`
+#   Whether repo_location requires https transport. Optional, defaults to true.
 #
 # Authors
 # -------
@@ -24,12 +46,19 @@
 #
 class xp_runners (
   $manage_package_repo  = $xp_runners::params::manage_package_repo,
+  $repo_location = $xp_runners::params::repo_location,
+  $repo_release = $xp_runners::params::repo_release,
+  $repo_repos = $xp_runners::params::repo_repos,
+  $repo_key_id = $xp_runners::params::repo_key_id,
+  $repo_key_source = $xp_runners::params::repo_key_source,
+  $repo_requires_https = $xp_runners::params::repo_requires_https,
 ) inherits xp_runners::params {
 
   include xp_runners::install
 
   validate_bool($manage_package_repo)
   if $manage_package_repo {
+    validate_bool($repo_requires_https)
     include xp_runners::repository
 
     anchor { '::xp_runners::begin': } ->

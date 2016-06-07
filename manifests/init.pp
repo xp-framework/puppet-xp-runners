@@ -33,6 +33,8 @@
 #
 # * `repo_requires_https`
 #   Whether repo_location requires https transport. Optional, defaults to true.
+#   You should set this to false in case your repo_location doesn't require
+#   https.
 #
 # Authors
 # -------

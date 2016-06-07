@@ -47,12 +47,12 @@
 # Copyright 2015, 2016 Frank Kleine
 #
 class xp_runners (
-  $manage_package_repo  = $xp_runners::params::manage_package_repo,
-  $repo_location = $xp_runners::params::repo_location,
-  $repo_release = $xp_runners::params::repo_release,
-  $repo_repos = $xp_runners::params::repo_repos,
-  $repo_key_id = $xp_runners::params::repo_key_id,
-  $repo_key_source = $xp_runners::params::repo_key_source,
+  $manage_package_repo = $xp_runners::params::manage_package_repo,
+  $repo_location       = $xp_runners::params::repo_location,
+  $repo_release        = $xp_runners::params::repo_release,
+  $repo_repos          = $xp_runners::params::repo_repos,
+  $repo_key_id         = $xp_runners::params::repo_key_id,
+  $repo_key_source     = $xp_runners::params::repo_key_source,
   $repo_requires_https = $xp_runners::params::repo_requires_https,
 ) inherits xp_runners::params {
 

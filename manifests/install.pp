@@ -17,7 +17,14 @@ class xp_runners::install {
 
   package { 'xp-runners':
     ensure => latest,
-    tag    => 'xp_runners_repo'
+    tag    => 'xp_runners_repo',
+  }
+
+  if $xp_runners::composer_home {
+    exec { 'composer global require xp-framework/core':
+      command     => "${xp_runners::composer_path} global require xp-framework/core",
+      path        => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/', '/usr/local/bin/' ],
+      environment => ["COMPOSER_HOME=${xp_runners::composer_home}"]
+    }
   }
 }
-

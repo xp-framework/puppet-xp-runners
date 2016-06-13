@@ -22,4 +22,5 @@ class xp_runners::params {
   $repo_key_id         = '8756C4F765C9AC3CB6B85D62379CE192D401AB61'
   $repo_key_source     = 'https://bintray.com/user/downloadSubjectPublicKey?username=bintray'
   $repo_requires_https = true
+  $composer_path       = 'composer'
 }

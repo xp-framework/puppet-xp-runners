@@ -5,6 +5,10 @@
 #
 # This module depends on puppetlabs-apt.
 #
+# In order to let the module install xp-framework/core as a global package as a
+# global Composer package it expects that Composer is already installed, most
+# likely through another Puppet module.
+#
 # Parameters
 # ----------
 #
@@ -36,6 +40,17 @@
 #   You should set this to false in case your repo_location doesn't require
 #   https.
 #
+# * `composer_home`
+#   Composer home path as defined in `COMPOSER_HOME` environment variable.
+#   Optional, undefined by default. When specified the module will try to
+#   install xp-framework/core as a global package.
+#
+# * `composer_path`
+#   Path to Composer binary. Optional, defaults to 'composer'. You might want to
+#   change this to an absolute path if your Composer binary is not in one of the
+#   default pathes, which are /bin, /sbin, /usr/bin, /usr/sbin/ and
+#   /usr/local/bin/, or if your binary is 'composer.phar'.
+#
 # Authors
 # -------
 #
@@ -54,6 +69,8 @@ class xp_runners (
   $repo_key_id         = $xp_runners::params::repo_key_id,
   $repo_key_source     = $xp_runners::params::repo_key_source,
   $repo_requires_https = $xp_runners::params::repo_requires_https,
+  $composer_home       = undef,
+  $composer_path       = $xp_runners::params::composer_path,
 ) inherits xp_runners::params {
 
   include xp_runners::install

@@ -10,4 +10,4 @@ rvm:
   - 2.0
   - 2.1
   - 2.2
-script: rake lint syntax validate spec
+script: bundle exec rake lint syntax validate spec

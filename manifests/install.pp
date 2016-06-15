@@ -21,10 +21,10 @@ class xp_runners::install {
   }
 
   if $xp_runners::composer_home {
-    if 'latest' == $xp_runners::composer_version {
+    if 'latest' == $xp_runners::framework_version {
       $version = ''
     } else {
-      $version = ":${xp_runners::composer_version}"
+      $version = ":${xp_runners::framework_version}"
     }
 
     exec { 'composer global require xp-framework/core':

@@ -70,6 +70,7 @@ class xp_runners (
   $repo_key_source     = $xp_runners::params::repo_key_source,
   $repo_requires_https = $xp_runners::params::repo_requires_https,
   $composer_home       = undef,
+  $composer_version    = $xp_runners::params::composer_version,
   $composer_path       = $xp_runners::params::composer_path,
 ) inherits xp_runners::params {
 

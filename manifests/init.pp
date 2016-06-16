@@ -12,6 +12,9 @@
 # Parameters
 # ----------
 #
+# * `version`
+#   Version of xp-runners to be installed. Optional, defaults to latest.
+#
 # * `manage_package_repo`
 #   Switch whether the XP-Runners repository should be used. Optional, defaults
 #   to true. All remaining parameters are ignored when this is set to false.
@@ -67,6 +70,7 @@
 # Copyright 2015, 2016 Frank Kleine
 #
 class xp_runners (
+  $version             = $xp_runners::params::version,
   $manage_package_repo = $xp_runners::params::manage_package_repo,
   $repo_location       = $xp_runners::params::repo_location,
   $repo_release        = $xp_runners::params::repo_release,

@@ -15,6 +15,7 @@
 #
 class xp_runners::params {
 
+  $version             = 'latest'
   $manage_package_repo = true
   $repo_location       = 'https://dl.bintray.com/xp-runners/debian'
   $repo_release        = 'jessie'

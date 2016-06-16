@@ -16,7 +16,7 @@
 class xp_runners::install {
 
   package { 'xp-runners':
-    ensure => latest,
+    ensure => $xp_runners::version,
     tag    => 'xp_runners_repo',
   }
 

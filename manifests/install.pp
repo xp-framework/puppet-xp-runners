@@ -16,16 +16,21 @@
 class xp_runners::install {
 
   package { 'xp-runners':
-    ensure => latest,
+    ensure => $xp_runners::version,
     tag    => 'xp_runners_repo',
   }
 
   if $xp_runners::composer_home {
+    if 'latest' == $xp_runners::framework_version {
+      $version = ''
+    } else {
+      $version = ":${xp_runners::framework_version}"
+    }
+
     exec { 'composer global require xp-framework/core':
-      command     => "${xp_runners::composer_path} global require xp-framework/core",
+      command     => "${xp_runners::composer_path} global require xp-framework/core${version}",
       path        => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/', '/usr/local/bin/' ],
-      environment => ["COMPOSER_HOME=${xp_runners::composer_home}"],
-      creates     => "${xp_runners::composer_home}/vendor/xp-framework/core/composer.json"
+      environment => ["COMPOSER_HOME=${xp_runners::composer_home}"]
     }
   }
 }

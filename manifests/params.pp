@@ -15,6 +15,7 @@
 #
 class xp_runners::params {
 
+  $version             = 'latest'
   $manage_package_repo = true
   $repo_location       = 'https://dl.bintray.com/xp-runners/debian'
   $repo_release        = 'jessie'
@@ -23,4 +24,5 @@ class xp_runners::params {
   $repo_key_source     = 'https://bintray.com/user/downloadSubjectPublicKey?username=bintray'
   $repo_requires_https = true
   $composer_path       = 'composer'
+  $framework_version   = 'latest'
 }

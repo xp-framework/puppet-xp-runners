@@ -12,6 +12,9 @@
 # Parameters
 # ----------
 #
+# * `version`
+#   Version of xp-runners to be installed. Optional, defaults to latest.
+#
 # * `manage_package_repo`
 #   Switch whether the XP-Runners repository should be used. Optional, defaults
 #   to true. All remaining parameters are ignored when this is set to false.
@@ -51,6 +54,11 @@
 #   default pathes, which are /bin, /sbin, /usr/bin, /usr/sbin/ and
 #   /usr/local/bin/, or if your binary is 'composer.phar'.
 #
+# * `framework_version`
+#   Specifies the version of xp-framework/core to install. Optional, defaults to
+#   'latest'. Allows any version constraint that is allowed in a composer.json
+#   file.
+#
 # Authors
 # -------
 #
@@ -62,6 +70,7 @@
 # Copyright 2015, 2016 Frank Kleine
 #
 class xp_runners (
+  $version             = $xp_runners::params::version,
   $manage_package_repo = $xp_runners::params::manage_package_repo,
   $repo_location       = $xp_runners::params::repo_location,
   $repo_release        = $xp_runners::params::repo_release,
@@ -71,6 +80,7 @@ class xp_runners (
   $repo_requires_https = $xp_runners::params::repo_requires_https,
   $composer_home       = undef,
   $composer_path       = $xp_runners::params::composer_path,
+  $framework_version   = $xp_runners::params::framework_version,
 ) inherits xp_runners::params {
 
   include xp_runners::install

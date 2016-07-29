@@ -54,6 +54,10 @@
 #   default pathes, which are /bin, /sbin, /usr/bin, /usr/sbin/ and
 #   /usr/local/bin/, or if your binary is 'composer.phar'.
 #
+# * `composer_user`
+#   User with which to execute Composer to install xp-framework/core. Optional,
+#   defaults to 'root'.
+#
 # * `framework_version`
 #   Specifies the version of xp-framework/core to install. Optional, defaults to
 #   'latest'. Allows any version constraint that is allowed in a composer.json
@@ -80,6 +84,7 @@ class xp_runners (
   $repo_requires_https = $xp_runners::params::repo_requires_https,
   $composer_home       = undef,
   $composer_path       = $xp_runners::params::composer_path,
+  $composer_user       = $xp_runners::params::composer_user,
   $framework_version   = $xp_runners::params::framework_version,
 ) inherits xp_runners::params {
 

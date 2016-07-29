@@ -30,7 +30,8 @@ class xp_runners::install {
     exec { 'composer global require xp-framework/core':
       command     => "${xp_runners::composer_path} global require xp-framework/core${version}",
       path        => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/', '/usr/local/bin/' ],
-      environment => ["COMPOSER_HOME=${xp_runners::composer_home}"]
+      environment => ["COMPOSER_HOME=${xp_runners::composer_home}"],
+      user        => "${xp_runners::composer_user}"
     }
   }
 }
